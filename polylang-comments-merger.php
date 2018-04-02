@@ -66,7 +66,7 @@ function merge_comments($comments, $post_ID) {
 
 	global $polylang;
 
-	$translationIds = $polylang->model->get_translations('post', $post_ID);
+	$translationIds = $polylang->model->get_translations(get_post_type($post_ID), $post_ID);
 
 	foreach ( $translationIds as $key=>$translationID ){
 		if( $translationID != $post_ID ) {
@@ -93,7 +93,7 @@ function merge_comment_count($count, $post_ID) {
 	if ( !is_admin() ){
 		global $polylang;
   
-		$translationIds = $polylang->model->get_translations('post', $post_ID);
+		$translationIds = $polylang->model->get_translations(get_post_type($post_ID), $post_ID);
     
 		foreach ( $translationIds as $key=>$translationID ){
 			if( $translationID != $post_ID ) {
